@@ -30,13 +30,24 @@ data/inventory_demand_forecasting.csv
 ## Repo Structure
 
 ```
-README.md
-requirements.txt          versions the notebooks were last executed with (Python 3.12)
-src/utils.py              data loading and validation, features, metrics, rolling-origin CV, output helpers
-notebooks/                the three notebooks above, executed top to bottom
-tests/test_utils.py       unit tests for src/utils.py
-data/                     input CSV
-outputs/csv, outputs/figures   generated tables and figures
+.
+├── README.md
+├── .gitignore
+├── requirements.txt
+├── data/
+│   └── inventory_demand_forecasting.csv
+├── notebooks/
+│   ├── eda.ipynb
+│   ├── forecasting.ipynb
+│   └── inventory_optimization.ipynb
+├── src/
+│   ├── __init__.py
+│   └── utils.py
+├── tests/
+│   └── test_utils.py
+└── outputs/
+    ├── csv/
+    └── figures/
 ```
 
 ## How to run
@@ -59,7 +70,7 @@ Run the notebooks in the order *forecasting* then *inventory_optimization* (the 
 
 ## Limitations
 
-- **The data looks simulated**: price and stock are independent uniform draws, `category` maps one-to-one to the product, promotions are independent across products (see Section 0.1 of the EDA). Findings such as *no weekly cycle, no autocorrelation, multiplicative noise, price irrelevant* describe this dataset and should be re-tested on real data (weekly patterns, intermittent demand, sales censored by stockouts, price response, variable lead times). The data source is not recorded in this repository.
+- **Synthetic data**: price and stock are independent uniform draws, `category` maps one-to-one to the product, promotions are independent across products. Findings such as *no weekly cycle, no autocorrelation, multiplicative noise, price irrelevant* describe this dataset and should be re-tested on real data (weekly patterns, intermittent demand, sales censored by stockouts, price response, variable lead times).
 - Costs, lead time and review period are **assumptions**; conclusions concern relative policy performance, not absolute savings.
 - The Monte Carlo paths use the same multiplicative noise model as the policies they favour, and contain 2.4% more demand than the real 2024; they show that differences are not luck, not that the noise model is right.
 - Two years of data: the trend term is not extrapolated beyond 2024, and models are selected and evaluated on the same folds.
