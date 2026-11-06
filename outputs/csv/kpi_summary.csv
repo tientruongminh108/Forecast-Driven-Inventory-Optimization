@@ -1,0 +1,5 @@
+policy,setting,mean_cost,fill_rate,avg_inventory_units,cost_saving_vs_days_of_cover_pct,standard_error_pct,avg_safety_stock_units,basis
+Days of cover (trailing mean),k = 4,65157.08996761364,0.999409317143896,2900.286605501818,0.0,0.0,,"Monte Carlo, 400 paths, base case"
+Classical (constant sigma),alpha = 0.99,56576.92171103178,0.9994696084818877,2335.111312088856,13.168433797222377,0.2637563352961921,,"Monte Carlo, 400 paths, base case"
+Normal (CV-scaled sigma),alpha = 0.97,54366.680915663,0.9994258610372364,2182.4859300437474,16.560606155545056,0.27142635807897303,,"Monte Carlo, 400 paths, base case"
+Quantile (multiplicative),alpha = 0.97,54376.085941265716,0.9993714274401729,2166.9831370500815,16.546171769958754,0.27434654009907233,167.87587541106544,"Monte Carlo, 400 paths, base case"
